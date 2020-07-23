@@ -1,4 +1,5 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
+const data = require('./data.js');
 
 
 
@@ -46,6 +47,7 @@ ipcMain.on('close-window-about', () => {
 
 ipcMain.on('stoped-time', (event, curso, calculatedTime) => {
 
-    console.log(`o curso ${curso} foi estudado`+ calculatedTime);
+    //console.log(`o curso ${curso} foi estudado`+ calculatedTime);
+    data.saveData(curso, calculatedTime)
 
 });
