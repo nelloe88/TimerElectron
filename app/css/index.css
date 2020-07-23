@@ -47,13 +47,13 @@ html, body {
 
 }
 
-.botao-play{
+.button-play{
    width: 65%;
    padding-top: 13px;
    margin: 0 auto;
    display: block;
 }
-.tempo{
+.time{
    font-size: 5.5em;
    color: #FFFFFF;
    display: inline-block;

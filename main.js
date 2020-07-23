@@ -43,3 +43,9 @@ ipcMain.on('open-window-about', () => {
 ipcMain.on('close-window-about', () => {
     aboutWindow.close();
 });
+
+ipcMain.on('stoped-time', (event, curso, calculatedTime) => {
+
+    console.log(`o curso ${curso} foi estudado`+ calculatedTime);
+
+});
