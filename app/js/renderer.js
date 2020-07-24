@@ -53,18 +53,26 @@ playButton.addEventListener('click', function(){
 });
 
 ipcRenderer.on('change-option-tray', (event, nameOption) => {
-
+    timer.stop(curso.textContent);
     data.getData(curso.textContent)
     .then((nameOption) => {
       //  console.log(dataFile);
         time.textContent = nameOption.times;
 
-    })
+    }).catch((err) => {
+
+        time.textContent = '00:00:00';
+    });
 
     curso.textContent = nameOption;
 });
 
 addButton.addEventListener('click', function(){
+    if(addField.value == ''){
+        return;
+    }
+
+
     let newContent = addField.value;
     curso.textContent = newContent;
     time.textContent = '00:00:00';

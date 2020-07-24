@@ -34,6 +34,7 @@ app.on('ready', () => {
 
     //console.log(__dirname);
    // mainWindow.loadURL('http://androidneon.com');
+   // mainWindow.openDevTools();
     mainWindow.loadURL(`file://${__dirname}/app/index.html`);
 
 

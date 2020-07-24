@@ -52,7 +52,7 @@ module.exports = {
         files = files.map((file) => {
             return file.substr(0,file.lastIndexOf('.'));
         });
-        console.log("files "+ files);
+       // console.log("files "+ files);
         return files;
     }
 
