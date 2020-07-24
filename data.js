@@ -45,6 +45,15 @@ module.exports = {
     getData(curso){
         let filePath = __dirname + '/data/'+ curso +'.json';
         return jsonfile.readFile(filePath);
+    }, 
+    getNameDataFile(){
+
+        let files = fs.readdirSync(__dirname + '/data/');
+        files = files.map((file) => {
+            return file.substr(0,file.lastIndexOf('.'));
+        });
+        console.log("files "+ files);
+        return files;
     }
 
 
