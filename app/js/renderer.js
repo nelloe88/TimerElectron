@@ -34,9 +34,18 @@ playButton.addEventListener('click', function(){
     if(play){
         timer.stop(curso.textContent);
         play = false;
+
+        new Notification('Timer',{
+            body: `Chronometer  activity : ${curso.textContent} stopped!!`,
+            icon: 'img/stop-button.png'
+        });
     }else{
         timer.start(time);
         play = true;
+        new Notification('Timer',{
+            body: `Chronometer  activity : ${curso.textContent} Started!!`,
+            icon: 'img/play-button.png'
+        });
     }
     
     playButton.src = imgs[0];
@@ -61,4 +70,10 @@ addButton.addEventListener('click', function(){
     time.textContent = '00:00:00';
     addField.value = '';
     ipcRenderer.send('add-activity', newContent);
+});
+
+ipcRenderer.on('shortcut-start', () => {
+   
+    let click = new MouseEvent('click');
+    playButton.dispatchEvent(click);
 });

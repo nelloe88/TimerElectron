@@ -13,6 +13,11 @@ app.on('ready', () => {
         height: 400
 
     });
+
+    globalShortcut.register('CmdOrCtrl+Shift+S', () => {
+        mainWindow.send('shortcut-start');
+    });
+
     //icone in bare
     tray = new Tray(__dirname+'/app/img/icon-tray.png');
     //menu by icon bare
@@ -64,7 +69,7 @@ ipcMain.on('close-window-about', () => {
 ipcMain.on('stoped-time', (event, curso, calculatedTime) => {
 
     //console.log(`o curso ${curso} foi estudado`+ calculatedTime);
-    data.saveData(curso, calculatedTime)
+    data.saveData(curso, calculatedTime);
 
 });
 ipcMain.on('add-activity', (event, newActivity) => {
